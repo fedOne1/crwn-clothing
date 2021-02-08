@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import CustomerButton from '../../components/customer-button/customer-button.component';
 import FormInput from '../../components/form-input/form-input.component';
-import './sign-in.styles.scss'
-
+import './sign-in.styles.scss';
+import {signInWithGoogle} from '../../firebase/firebase.utils';
  class SignIn extends Component {
      constructor(){
         super()
@@ -46,7 +46,11 @@ import './sign-in.styles.scss'
                         required
                         
                        />
-                <CustomerButton type='submit'> SIGN IN</CustomerButton>  
+                    <div className='buttons'>
+                           <CustomerButton type='submit'> Sign in</CustomerButton>  
+                            <CustomerButton onClick={signInWithGoogle} isGoogleSignIn>Sign in with google</CustomerButton>
+                    </div>
+                  
                 </form>
             </div>
         )
