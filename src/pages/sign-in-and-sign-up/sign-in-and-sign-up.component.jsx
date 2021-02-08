@@ -1,22 +1,15 @@
-import React, {Component} from 'react'
-import SignIn from '../sign-in/sign-in.component'
+import React from 'react'
+import SignUp from '../../sign-up/sign-up.component';
+import SignIn from '../sign-in/sign-in.component';
+import './sign-in-and-sign-up.styles.scss'
 
-class SignInAndSignUpPage extends Component {
 
-    constructor(props) {
-        super(props)
-    
-        this.state = {
-            
-        }
-       
-    }
-    render(){
-        return (
+const SignInAndSignUpPage = () => (
+  
             <div className='sign-in-and-sign-up'>
-            <SignIn />
+                <SignIn />
+                <SignUp />
             </div>
         )
-    }
-}
+
 export default SignInAndSignUpPage;
