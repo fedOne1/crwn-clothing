@@ -6,7 +6,7 @@ import Header from './hedear/header.component.jsx'
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import {auth, createUserProfileDocument} from './firebase/firebase.utils'
 import {Component} from 'react';
-import {connect,redirect} from 'react-redux';
+import {connect} from 'react-redux';
 import {setCurrentUser} from './redux/user/user.action';
 
 
@@ -54,10 +54,12 @@ componentWillUnmount(){
   }
 };
 
-const mapStateToProps=({
+const mapStateToProps=user=>({
   currentUser:user.currentUser
 })
 const mapDispatchToProps= dispatch=>({
  setCurrentUser:user =>dispatch(setCurrentUser(user))
 });
-export default connect(null,mapDispatchToProps) (App);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps) (App);
